@@ -1,6 +1,5 @@
 import requests
 import csv
-import json
 from bearer_token import token
 
 bearer_token = token
@@ -42,7 +41,7 @@ def organize_data(response_dict):
     return [tweet_id, author_id, retweet_count, like_count, text, username, followers_count]
 
 def create_query_params(next_token):
-    query_params = {'query': 'Joe Biden -is:retweet','max_results': 10, 'tweet.fields': 'author_id, public_metrics', 'expansions': 'author_id', 'user.fields': 'public_metrics', 'next_token': next_token}
+    query_params = {'query': 'Joe Biden -is:retweet', 'max_results': 10, 'tweet.fields': "author_id,public_metrics", 'expansions': 'author_id', 'user.fields': 'public_metrics', 'next_token': next_token}
     return query_params
 
 def main():
